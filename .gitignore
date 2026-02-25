@@ -1,0 +1,26 @@
+# Credentials (CRITICAL - NEVER COMMIT)
+credentials/*
+!credentials/*.example
+!credentials/README.md
+!credentials/.gitkeep
+*.json
+!config.yaml.example
+config.yaml
+
+# Cache & Temp
+cache/
+temp/
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp

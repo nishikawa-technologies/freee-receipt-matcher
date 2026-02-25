@@ -1,0 +1,33 @@
+# freee-receipt-matcher 設定ファイル
+# 機密情報は credentials/ ディレクトリに分離
+
+freee:
+  credentials_file: "credentials/freee.yaml"  # freee認証情報ファイル
+
+gmail:
+  credentials_path: "credentials/gmail_credentials.json"
+  token_path: "credentials/gmail_token.json"
+
+llm:
+  provider: "anthropic"
+  model: "claude-sonnet-4-6"
+  # APIキーは以下のいずれかで指定:
+  # 1. credentials_file (推奨) - ファイルから読み込み
+  # 2. api_key_env - 環境変数から読み込み
+  credentials_file: "credentials/claude_api_key.txt"  # 推奨
+  # api_key_env: "CLAUDE_API_KEY"  # 代わりに環境変数も使用可能
+
+fx_rates:
+  provider: "exchangerate.host"
+  cache_dir: "./cache"
+
+matching:
+  tolerance_percent: 3.0   # 金額許容誤差（%）
+  date_range_days: 90      # デフォルト検索範囲（日）
+  min_confidence: 0.7      # 最低信頼度閾値
+
+logging:
+  level: "INFO"
+  file: "logs/freee-matcher.log"
+
+temp_dir: "./temp"

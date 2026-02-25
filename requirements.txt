@@ -17,3 +17,6 @@ pyyaml>=6.0.1
 # Utilities
 python-dateutil>=2.8.2
 typing-extensions>=4.8.0
+
+# Web Scraping (Phase 2)
+playwright>=1.40.0

@@ -243,10 +243,31 @@ MIT License
 
 Issue、Pull Requestを歓迎します！
 
-## 今後の拡張予定
+## Phase 2: Webスクレイピング対応（実装中）
 
-- Webスクレイピング対応（認証付きサービス）
-- 主要SaaSコネクタ（AWS, Azure, Slack等）
+Gmail以外のソースからも領収書を取得できるようになりました:
+
+### OpenAI スクレイパ（実装済み）
+
+OpenAI Platform の請求履歴からStripe経由で領収書PDFを自動取得。
+
+```bash
+# 1. Playwright インストール
+uv run python -m playwright install chromium
+
+# 2. Cookie セットアップ（推奨: デフォルトブラウザ使用）
+uv run python scripts/setup_openai_cookies.py
+
+# 3. 領収書取得（ヘッドレス）
+uv run python scripts/test_openai_scraper.py --headless
+```
+
+詳細は [docs/OPENAI_SCRAPER.md](docs/OPENAI_SCRAPER.md) を参照。
+
+### 今後の拡張予定
+
+- 主要SaaSコネクタ（Anthropic, AWS, Azure, Slack等）
+- `run.py` との統合（`--sources gmail,openai`）
 - Web UI（FastAPI + React）
 - `pip install` 対応
 
